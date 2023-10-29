@@ -27,7 +27,20 @@ const VideoCall = () => {
     router.push("/");
   };
   return (
-    <div className="flex flex-col justify-center items-center">
+    // <div className="flex flex-col justify-center items-center">
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundImage: 'url("/assets/images/nightmare.gif")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <h1 className="text-5xl text-center my-18">video call</h1>
       <div className="flex container cursor-pointer">
         <MdArrowBack width="80px" onClick={handleBack} />
