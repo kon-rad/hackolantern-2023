@@ -3,6 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PropsWithChildren, useEffect } from "react";
 
+import { GlobalStateProvider } from "@/lib/context/GlobalStateProvider";
 // import { useAppContext } from "@/lib/context/AppProvider/hooks/useAppContext";
 
 const queryClient = new QueryClient();
@@ -16,8 +17,10 @@ export const App = ({ children }: PropsWithChildren): JSX.Element => {
   }, []);
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="flex-1">{children}</div>
-    </QueryClientProvider>
+    <GlobalStateProvider>
+      <QueryClientProvider client={queryClient}>
+        <div className="flex-1">{children}</div>
+      </QueryClientProvider>
+    </GlobalStateProvider>
   );
 };
