@@ -24,7 +24,6 @@ const defaultTargets = [
   },
 ];
 const HomePage = (): JSX.Element => {
-  const [previewSource, setPreviewSource] = useState<string | null>(null);
   const [previewTargets, setPreviewTargets] = useState<any[]>([
     ...defaultTargets,
   ]);
@@ -42,6 +41,8 @@ const HomePage = (): JSX.Element => {
     setGenImage3,
     username,
     setUsername,
+    previewSource,
+    setPreviewSource,
   } = useGlobalState();
 
   const router = useRouter();
@@ -174,69 +175,73 @@ const HomePage = (): JSX.Element => {
             upload
           </button>
         </div>
-        {genImage1 && (
-          <div className="flex flex-col justify-center my-12 items-center">
-            <h3 className="text-3xl text-bold text-center mb-12">
-              generated image
-            </h3>
-            <img
-              src={genImage1}
-              alt="Preview"
-              style={{ maxWidth: "700px", maxHeight: "700px" }}
-              className="rounded-2xl m-2"
-            />
-            <div className="flex flex-col justify-center my-12 items-center">
-              <button
-                className="m-12 py-2 px-6 rounded border bg-purple-300 w-40"
-                onClick={handleDownload}
-              >
-                Download
-              </button>
+        <div className="flex flex-row justify-center items-center my-14">
+          {genImage1 && (
+            <div className="flex flex-col mr-8">
+              <h3 className="text-3xl text-bold text-center mb-12">
+                generated image
+              </h3>
+              <img
+                src={genImage1}
+                alt="Preview"
+                style={{ maxWidth: "300px", maxHeight: "300px" }}
+                className="rounded-2xl m-2"
+              />
+              <div className="flex flex-col justify-center my-12 items-center">
+                <button
+                  className="m-12 py-2 px-6 rounded border bg-purple-300 w-40"
+                  onClick={handleDownload}
+                >
+                  Download
+                </button>
+              </div>
             </div>
-          </div>
-        )}
-        {genImage2 && (
-          <div className="flex flex-col justify-center my-12 items-center">
-            <h3 className="text-3xl text-bold text-center mb-12">
-              generated image
-            </h3>
-            <img
-              src={genImage2}
-              alt="Preview"
-              style={{ maxWidth: "700px", maxHeight: "700px" }}
-              className="rounded-2xl m-2"
-            />
-            <div className="flex flex-col justify-center my-12 items-center">
-              <button
-                className="m-12 py-2 px-6 rounded border bg-purple-300 w-40"
-                onClick={handleDownload}
-              >
-                Download
-              </button>
+          )}
+
+          {genImage2 && (
+            <div className="flex flex-col mr-8">
+              <h3 className="text-3xl text-bold text-center mb-12">
+                generated image
+              </h3>
+              <img
+                src={genImage2}
+                alt="Preview"
+                style={{ maxWidth: "300px", maxHeight: "300px" }}
+                className="rounded-2xl m-2"
+              />
+              <div className="flex flex-col justify-center my-12 items-center">
+                <button
+                  className="m-12 py-2 px-6 rounded border bg-purple-300 w-40"
+                  onClick={handleDownload}
+                >
+                  Download
+                </button>
+              </div>
             </div>
-          </div>
-        )}
-        {genImage3 && (
-          <div className="flex flex-col justify-center my-12 items-center">
-            <h3 className="text-3xl text-bold text-center mb-12">
-              generated image
-            </h3>
-            <img
-              src={genImage3}
-              alt="Preview"
-              style={{ maxWidth: "700px", maxHeight: "700px" }}
-              className="rounded-2xl m-2"
-            />
-            <div className="flex flex-col justify-center my-12 items-center">
-              <button
-                className="m-12 py-2 px-6 rounded border bg-purple-300 w-40"
-                onClick={handleDownload}
-              >
-                Download
-              </button>
+          )}
+
+          {genImage3 && (
+            <div className="flex flex-col mr-8">
+              <h3 className="text-3xl text-bold text-center mb-12">
+                generated image
+              </h3>
+              <img
+                src={genImage3}
+                alt="Preview"
+                style={{ maxWidth: "300px", maxHeight: "300px" }}
+                className="rounded-2xl m-2"
+              />
+              <div className="flex flex-col justify-center my-12 items-center">
+                <button
+                  className="m-12 py-2 px-6 rounded border bg-purple-300 w-40"
+                  onClick={handleDownload}
+                >
+                  Download
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
         <div className="flex flex-col justify-center my-12 items-center">
           <VoiceToText />
           <button

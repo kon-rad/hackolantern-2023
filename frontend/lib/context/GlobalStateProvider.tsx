@@ -7,6 +7,7 @@ export const GlobalStateProvider = ({ children }) => {
   const [genImage2, setGenImage2] = useState<string | null>(null);
   const [genImage3, setGenImage3] = useState<string | null>(null);
   const [username, setUsername] = useState<string | null>(null);
+  const [previewSource, setPreviewSource] = useState<string | null>(null);
 
   return (
     <GlobalStateContext.Provider
@@ -20,6 +21,8 @@ export const GlobalStateProvider = ({ children }) => {
           setGenImage3,
           username,
           setUsername,
+          previewSource,
+          setPreviewSource
         } as any
       }
     >
